@@ -1,0 +1,102 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-03T21:41:50.883Z",
+    "end": "2025-04-03T21:41:58.530Z",
+    "duration": 7647,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a20c07e1-37ab-4991-9285-934eb4995de9",
+      "title": "",
+      "fullFile": "cypress/e2e/qubika_contact_form.cy.js",
+      "file": "cypress/e2e/qubika_contact_form.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5b37310c-6864-4323-8bf9-95193315ac5b",
+          "title": "Contact Form Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Contact Form validation",
+              "fullTitle": "Contact Form Test Contact Form validation",
+              "timedOut": null,
+              "duration": 5815,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(2000, 1000);\n// Step 1: Navigate to Qubika Website\nhomePage.navigateToQubika();\n// Step 2: Validate that the website is displayed correctly, validating URL and Qubika logo\ncy.url().should('eq', 'https://qubika.com/');\nhomePage.getLogo().should('be.visible');\n// Step 3: Click ‘Contact us’ button\nhomePage.clickContactUsButton();\n// Step 4: Validate contact form is displayed\ncy.get('form').should('be.visible');\n// 4.1 Validating Name field is displayed\ncontactUsPage.getNameField().should('be.visible');\n// 4.2 Email field is displayed\ncontactUsPage.getEmailField().should('be.visible');\n// 4.3 ‘Submit’ button is displayed\ncontactUsPage.getSubmitButton().should('be.visible');\n// Step 5: Click ‘Submit’ button without filling any field\ncy.get(contactUsPage.getSubmitButton().scrollIntoView());\ncontactUsPage.submitForm();\n// Step 6: Validate that all mandatory fields have an error message\ncontactUsPage.getNameField().closest('.hs_firstname').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getLastNameField().closest('.hs_lastname').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getEmailField().closest('.hs_email').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getCompanyField().closest('.hs_company').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getContactType().closest('.hs_contact_type').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getMessageField().closest('.hs_message').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\n// Step 7: Write ‘Test name’ on the ‘Name’ field\ncontactUsPage.getNameField().type('Test name');\n// Step 8: Validate that all mandatory fields have an error message except ‘Name’ field\ncontactUsPage.getNameField().closest('.hs_firstname').find('.hs-error-msg.hs-main-font-element').should('not.exist');\ncontactUsPage.getLastNameField().closest('.hs_lastname').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getEmailField().closest('.hs_email').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getCompanyField().closest('.hs_company').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getContactType().closest('.hs_contact_type').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getMessageField().closest('.hs_message').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\n// Step 9: Close ‘Contact us’ form\ncontactUsPage.closeForm();\n// Step 10: Validate that the form is not displayed\ncontactUsPage.getForm().should('not.be.visible');\n// Step 11: Open ‘Contact us’ form\nhomePage.getContactUsButton().click();\n// Step 12: Validate that the form is displayed with the preview state: Name field completed and the rest with an error message\ncontactUsPage.getNameField().should('have.value', 'Test name');\ncontactUsPage.getLastNameField().closest('.hs_lastname').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getEmailField().closest('.hs_email').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getCompanyField().closest('.hs_company').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getContactType().closest('.hs_contact_type').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');\ncontactUsPage.getMessageField().closest('.hs_message').find('.hs-error-msg.hs-main-font-element').should('contain.text', 'Please complete this required field.');",
+              "err": {},
+              "uuid": "e75e8403-936c-43c5-b369-612e2a2e7425",
+              "parentUUID": "5b37310c-6864-4323-8bf9-95193315ac5b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e75e8403-936c-43c5-b369-612e2a2e7425"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5815,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
